@@ -29,8 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'movie-ticket-booking-4-b74x.onrender.com',
-    'localhost',
-    '127.0.0.1'
+    
 ]
 
 
