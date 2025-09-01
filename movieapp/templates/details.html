@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}Ticket Details{% endblock %}
+
+{% block tarun %}
+    <!-- Custom CSS for additional styling -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            background-color: #f0f8ff;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:nth-child(odd) {
+            background-color: #e9ecef;
+        }
+        .btn-primary {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        .btn-primary:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+        .no-tickets {
+            color: #dc3545;
+            text-align: center;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Movie Ticket Details</h1>
+
+    {% if tickets %}
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Movie Name</th>
+                    <th>Client Name</th>
+                    <th>Phone Number</th>
+                    <th>Cinema Hall</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Seats</th>
+                    <th>Payment Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ticket in tickets %}
+                    <tr>
+                        <td>{{ ticket.movie_name }}</td>
+                        <td>{{ ticket.client_name }}</td>
+                        <td>{{ ticket.phone_number }}</td>
+                        <td>{{ ticket.cinema_hall }}</td>
+                        <td>{{ ticket.date }}</td>
+                        <td>{{ ticket.time }}</td>
+                        <td>{{ ticket.seats }}</td>
+                        <td>{{ ticket.payment_status|yesno:"Paid,Pending" }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="no-tickets">No tickets found.</p>
+    {% endif %}
+
+    <div class="text-center mt-4">
+        <a href="{% url "home" %}" class="btn btn-primary">Back to Home</a>
+    </div>
+</div>
+
+
+</body>
+</html>
+{% endblock tarun %}

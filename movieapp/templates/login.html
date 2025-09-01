@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Login
+{% endblock title %}
+{% block tarun %}
+<div class="container">
+    <div class="row justify-content-center my-5">
+        <div class="col-md-6">
+            <!-- Card for the form -->
+            <div class="card shadow-lg">
+                <div class="card-header text-center  text-white" style="background-color:deeppink;">
+                    <h3>Login</h3>
+                </div>
+                <div class="card-body">
+                    <form action="" method="post" novalidate>
+                        {% csrf_token %}
+                        
+                        {% for field in form %}
+                            <div class="mb-3">
+                                {{ field.label_tag }}
+                                {{ field }}
+                                <small class="text-danger">
+                                    {{ field.errors|striptags }}
+                                </small>
+                            </div>
+                        {% endfor %}
+                        
+                        <div class="d-flex justify-content-between">
+                            <small><a href="{% url "forgot_password" %}" class="text-primary">Forgot Password?</a></small>
+                            <input type="submit" class="btn btn-primary w-50" value="Login">
+                        </div>
+                        
+                        <div class="text-center mt-3">
+                            <small>
+                                New user?
+                                <a href="{% url 'registration' %}" class="text-danger">Create An Account</a>
+                            </small>
+                        </div>
+
+                        {% if form.non_field_errors %}
+                            <div class="alert alert-danger mt-3">
+                                {% for error in form.non_field_errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock tarun %}

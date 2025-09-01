@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Partners
+{% endblock title %}
+
+{% block tarun %}
+<!-- Internal CSS for hover zoom effect -->
+<style>
+    /* Partner card zoom effect */
+    .partner-card {
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Card zoom effect */
+    .partner-card .card {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    /* Zoom in effect when hovering over the card */
+    .partner-card:hover .card {
+        transform: scale(1.05); /* Zoom in */
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Add a shadow to emphasize zoom */
+    }
+
+    /* Image zoom effect */
+    .partner-card .card-img-top {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    /* Zoom image when hovering over the card */
+    .partner-card:hover .card-img-top {
+        transform: scale(1.1); /* Slight zoom effect on image */
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 shadow p-5 rounded-lg bg-light">
+            <h1 class="text-center text-warning display-3 mb-4">Meet Our Partners</h1>
+            <div class="row g-4">
+                {% for p in partners %}
+                <div class="col-md-4 partner-card">
+                    <div class="card shadow-lg border-0 rounded">
+                        <img src="{{ p.image.url }}" alt="{{ p.name }}" class="card-img-top img-fluid" style="height: 300px; object-fit: cover;">
+                        <div class="card-body">
+                            <h3 class="card-title text-center text-primary">{{ p.name }}</h3>
+                            <p class="card-text text-center">{{ p.description }}</p>
+                        </div>
+                    </div>
+                </div>
+              
+                {% endfor %}
+                <form action=""method='get'>
+                    <input type="text"name="search2">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% include "footer.html" %}
+{% endblock tarun %}

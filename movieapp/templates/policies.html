@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Movie Ticket Booking Policies
+{% endblock title %}
+
+{% block tarun %}
+
+<style>
+    /* Custom CSS for enhanced appearance */
+    body {
+        background-color: #f1f5f8;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .container {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+        font-size: 36px;
+        color: #343a40;
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 600;
+        animation: bounceIn 1s ease;
+    }
+
+    .card {
+        border: none;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-body {
+        background: linear-gradient(135deg, #ff4b5c, #ff6a95);
+        color: #ffffff;
+        padding: 25px;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+        animation: fadeUp 1s ease-in-out;
+    }
+
+    .card-body:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    h3 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+        font-weight: 500;
+    }
+
+    p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: #f7f7f7;
+    }
+
+    /* Card hover effect */
+    .card-body:hover {
+        background: linear-gradient(135deg, #ff6a95, #ff4b5c);
+        transform: scale(1.02);
+    }
+
+    /* Footer styling */
+    .footer {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 1rem;
+        color: #343a40;
+    }
+
+    .footer p {
+        font-size: 0.9rem;
+        color: #777;
+    }
+
+    /* Animation keyframes */
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+    @keyframes bounceIn {
+        0% { transform: translateY(-30px); opacity: 0; }
+        60% { transform: translateY(10px); opacity: 1; }
+        100% { transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+        0% { opacity: 0; transform: translateY(10px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="container mt-5">
+    <h1>Movie Ticket Booking Policies</h1>
+
+   
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h3>2. Booking Confirmation</h3>
+            <p>Upon successful payment, you will receive a booking confirmation email with your ticket details.</p>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h3>3. Ticket Refund Policy</h3>
+            <p>If the movie is canceled or rescheduled, we will provide full refunds to all affected customers.</p>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h3>4. Late Arrival</h3>
+            <p>Late arrivals are not eligible for a refund. Please make sure to reach the theater at least 15 minutes before the movie start time.</p>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h3>5. Age Restrictions</h3>
+            <p>Customers are required to adhere to the age ratings provided for each movie. Please verify movie ratings before booking.</p>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h3>6. Customer Support</h3>
+            <p>If you have any issues with your booking, please contact our customer support team at <a href="mailto:support@movietickets.com" class="text-light">support@movietickets.com</a> or call 123-456-7890.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>For further inquiries, please contact our support team at <a href="mailto:support@movietickets.com" class="text-primary">support@movietickets.com</a>.</p>
+    </div>
+</div>
+
+{% include "footer.html" %}
+{% endblock tarun %}

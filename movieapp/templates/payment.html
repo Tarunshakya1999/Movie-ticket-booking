@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Payment
+{% endblock title %}
+
+{% block tarun %}
+<div class="text-center p-5">
+    <h1>💳 Complete Your Payment</h1>
+    <p>Movie: <strong>{{ ticket.movie_name }}</strong></p>
+    <p>Seats: <strong>{{ ticket.seats }}</strong></p>
+    <p>Total Amount: <strong>₹{{ amount|floatformat:2 }}</strong></p> <br>
+
+    <form action="/payment/callback/" method="POST" id="payment-form">
+        {% csrf_token %}
+        <!-- Razorpay Payment Button -->
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        <script>
+            var options = {
+                "key": "{{ rzp_test_BzASfuBzeuHtgZ }}",  // Merchant key (from settings)
+                "amount": "{{ amount }}",  // Amount in paise
+                "currency": "INR",
+                "name": "Movie Ticket Booking",
+                "description": "Ticket for {{ ticket.movie_name }}",
+                "order_id": "{{ razorpay_order_id }}",  // Order ID generated from the server
+                "handler": function (response) {
+                    // After payment is successful, handle response
+                    alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+                    console.log(response); 
+                    // Redirect to the payment success page
+                    window.location.href = "{% url 'payment_success' ticket.ticket_id %}?payment_id=" + response.razorpay_payment_id + "&order_id=" + response.razorpay_order_id;
+                },
+                "prefill": {
+                    "name": "{{ ticket.client_name }}",
+                    "email": "{{ ticket.client_name }}@example.com",  // Adjust email if available
+                    "contact": "{{ ticket.phone_number }}"
+                },
+                "theme": {
+                    "color": "#F37254"
+                }
+            };
+
+            var rzp1 = new Razorpay(options);
+            rzp1.open();  // Open Razorpay checkout modal
+        </script>
+    </form>
+    <button type="button" class="btn btn-success" onclick="rzp1.open()">Pay Now</button> <br>
+
+   
+</div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+{% endblock tarun %}

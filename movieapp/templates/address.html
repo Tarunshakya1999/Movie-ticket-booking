@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}
+  Address
+{% endblock title %}
+
+{% block tarun %}
+  <div class="container my-5">
+    <div class="row">
+      <h3 class="text-center mb-4 animated fadeIn">Welcome <span class="text-capitalize">{{ request.user }}</span></h3>
+
+      <div class="col-sm-2 border-end">
+        <ul class="list-unstyled">
+          <li class="mb-3">
+            <a href="{% url 'profile' %}" class="btn btn-primary btn-block py-3 animated fadeInUp">Create Profile</a>
+          </li>
+          <li class="mb-3">
+            <a href="{% url 'address' %}" class="btn btn-primary btn-block py-3 animated fadeInUp">Profile</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="col-sm-8 offset-sm-1">
+        <div class="row">
+          {% for ad in add %}
+            <div class="col-sm-6 mb-4 animated fadeInUp">
+              <div class="card shadow-lg rounded-lg border-0">
+                <div class="card-body">
+                  <h3 class="card-title text-center text-primary">Customer {{ forloop.counter }}</h3>
+                  <p><strong>Name:</strong> {{ ad.name }}</p>
+                  <p><strong>Mobile:</strong> {{ ad.mobile }}</p>
+                  <p><strong>City:</strong> {{ ad.city }}</p>
+                  <p><strong>State:</strong> {{ ad.state }}</p>
+                  <p><strong>Pincode:</strong> {{ ad.zipcode }}</p>
+                  <div class="text-center">
+                    <a href="{% url "updateprofile" pk=ad.pk %}" class="btn btn-danger btn-lg mt-3 animated bounceIn w-50">Update</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock tarun %}

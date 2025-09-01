@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Ticket Error
+{% endblock title %}
+{% block tarun %}
+<div class="bg-danger text-white text-center p-5">
+    <h1>🚫 Booking Error!</h1>
+    <p>{{ message }}</p>
+    <a href="{% url 'book_ticket' %}" class="btn btn-light">Go Back</a>
+</div>
+
+{% endblock tarun %}

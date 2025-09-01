@@ -1,0 +1,277 @@
+{% load static %}
+{% block tarun %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Booking Footer</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #111, #222);  /* Gradient background */
+            color: #fff;
+            padding: 40px 0;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Adding subtle shadow */
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo {
+            flex: 1;
+            max-width: 300px;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo h2 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff9800;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .footer-logo p {
+            font-size: 16px;
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            flex: 1;
+            max-width: 200px;
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #ff9800;
+        }
+
+        .footer-links ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            text-decoration: none;
+            color: #ddd;
+            font-size: 16px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: #ff9800;
+            transform: translateX(5px);  /* Subtle hover effect */
+        }
+
+        .footer-social {
+            flex: 1;
+            max-width: 200px;
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-social h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #ff9800;
+        }
+
+        .footer-social ul {
+            list-style-type: none;
+            padding-left: 0;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .footer-social ul li {
+            margin-right: 15px;
+        }
+
+        .footer-social ul li a {
+            font-size: 28px;
+            color: #ddd;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-social ul li a:hover {
+            color: #ff9800;
+            transform: scale(1.1);  /* Subtle scale effect */
+        }
+
+        .footer-bottom {
+            background-color: #111;
+            color: #ddd;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .footer-bottom a {
+            text-decoration: none;
+            color: #ff9800;
+        }
+
+        .footer-bottom a:hover {
+            color: #fff;
+        }
+
+        /* Scroll to Top Button */
+        #scrollTop {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 22px;
+            display: none;
+            transition: background-color 0.3s ease;
+        }
+
+        #scrollTop:hover {
+            background-color: #ff5722;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+            }
+
+            .footer-logo, .footer-links, .footer-social {
+                max-width: 100%;
+                text-align: center;
+                padding-left: 0;
+                margin-bottom: 20px;
+            }
+
+            .footer-logo h2 {
+                font-size: 24px;
+            }
+
+            .footer-links h3, .footer-social h3 {
+                font-size: 18px;
+            }
+
+            .footer-links ul li a, .footer-social ul li a {
+                font-size: 14px;
+            }
+
+            .footer-bottom {
+                padding: 20px;
+            }
+        }
+
+        /* Mobile adjustments for smaller screens */
+        @media (max-width: 480px) {
+            .footer-logo h2 {
+                font-size: 20px;
+            }
+
+            .footer-links h3, .footer-social h3 {
+                font-size: 16px;
+            }
+
+            .footer-links ul li a, .footer-social ul li a {
+                font-size: 12px;
+            }
+
+            #scrollTop {
+                right: 10px;
+                bottom: 10px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <!-- Footer Logo and Description -->
+            <div class="footer-logo">
+                <h2>MovieTicketBooking</h2>
+                <p>Your ultimate movie booking destination. Explore, book, and enjoy your favorite movies with ease!</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="{% url "policies" %}">Policies</a></li>
+                    <li><a href="{% url "about" %}">About</a></li>
+                    <li><a href="{% url "partners" %}">Partners</a></li>
+                    <li><a href="{% url "our_legacy" %}">Our Legacy</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.x.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="https://www.instagram.com/accounts/login/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+            </div>
+        </div>
+
+       <!-- Scroll to Top Button -->
+       <button id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
+    </footer>
+
+    <script>
+        // Show/Hide Scroll to Top Button
+        window.onscroll = function() {
+            let scrollTopButton = document.getElementById("scrollTop");
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollTopButton.style.display = "block";
+            } else {
+                scrollTopButton.style.display = "none";
+            }
+        };
+
+        // Scroll to Top Functionality
+        document.getElementById("scrollTop").onclick = function() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+    </script>
+
+</body>
+</html>
+
+{% endblock tarun %}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block tarun %}
+<!-- Our Legacy Page -->
+<div class="container my-5">
+    <div class="row text-center">
+        <div class="col-12">
+            <h1 class="display-4 text-primary font-weight-bold mb-4">Our Legacy</h1>
+            <p class="lead text-muted">From humble beginnings to a trusted name in movie ticket booking.</p>
+        </div>
+    </div>
+    
+    <!-- Our Journey Section -->
+    <div class="row mb-5">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+            <h3 class="font-weight-bold text-dark">Our Journey</h3>
+            <p>Founded in [2007], we started as a small startup with the dream of making movie ticket booking a seamless experience. Through dedication and innovation, we have evolved into one of the leading platforms for booking movie tickets online.</p>
+            <p>We pride ourselves on creating a user-friendly platform where movie lovers can easily find and book tickets for their favorite movies. We continue to innovate, improve, and expand our services to bring you the best possible experience.</p>
+        </div>
+        <div class="col-lg-6">
+            <img src="https://media.istockphoto.com/id/903650542/photo/asphalt-road-with-arrow-guideline-and-milestone-letters-painted-on-the-surface-an-image-of-a.jpg?s=612x612&w=0&k=20&c=-HvEISuUtiQsfnmcjHWaM7b4OJwG8UP7hUaJC8G-mp0=" alt="Our Journey" class="img-fluid rounded shadow-lg">
+        </div>
+    </div>
+
+    <!-- Milestones Section -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <h3 class="font-weight-bold text-dark text-center">Our Milestones</h3>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow">
+                        <img src="https://media.istockphoto.com/id/1083390204/vector/road-infographics-winding-road-to-success-with-pin-pointers-business-journey-way-progress.jpg?s=612x612&w=0&k=20&c=ZPiT3WEmuWbwGhVkngVnGNJUNEa2NPpwQfGRihOR-OE=" class="card-img-top" alt="Milestone 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Milestone 1</h5>
+                            <p class="card-text">In [2009], we launched our first mobile app, making it even easier for users to book tickets on the go.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow">
+                        <img src="https://cdn2.vectorstock.com/i/1000x1000/34/46/road-to-infinity-highway-vector-22373446.jpg" class="card-img-top" alt="Milestone 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Milestone 2</h5>
+                            <p class="card-text">In [2012], we partnered with top cinemas to offer exclusive discounts and special offers for our users.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow">
+                        <img src="https://t3.ftcdn.net/jpg/04/32/35/38/240_F_432353816_JQz4BdNX7vf0ah1aGD8RSQx17gZZO4GY.jpg" class="card-img-top" alt="Milestone 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Milestone 3</h5>
+                            <p class="card-text">In [2024], we expanded our services internationally, reaching movie lovers around the world.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Our Commitment Section -->
+    <div class="row">
+        <div class="col-12 text-center">
+            <h3 class="font-weight-bold text-dark mb-4">Our Commitment</h3>
+            <p class="lead text-muted">We are committed to making movie-going easier, more affordable, and more enjoyable for our users. Our legacy is built on the foundation of customer satisfaction and continuous innovation.</p>
+            <a href="{% url 'book_ticket' %}" class="btn btn-primary btn-lg">Book Your Ticket Now</a>
+        </div>
+    </div>
+</div>
+{% endblock tarun %}

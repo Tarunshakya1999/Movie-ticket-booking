@@ -1,0 +1,244 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Ticket Booking{% endblock title %}
+{% block tarun %}
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background: #f4f7fa;
+        margin-bottom: 100px;
+    }
+
+    h2 {
+        font-size: 2.8rem;
+        color: #343a40;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 40px;
+        animation: fadeIn 1.5s ease-out;
+        font-weight: bold;
+    }
+
+    .card {
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .card-body {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 20px;
+    }
+
+    .form-group label {
+        font-weight: bold;
+        color: #495057;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+
+    .form-control {
+        border-radius: 12px;
+        border: 1px solid #ced4da;
+        padding: 12px;
+        font-size: 1.1rem;
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    }
+
+    .form-control::placeholder {
+        color: #adb5bd;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 12px 30px;
+        border-radius: 50px;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+
+    .btn-primary:focus {
+        outline: none;
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    h3.text-success {
+        font-size: 1.6rem;
+        color: #28a745;
+        margin-bottom: 20px;
+        animation: slideUp 1.5s ease-in-out;
+        font-weight: 600;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    /* Animation for fadeIn */
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Animation for sliding up */
+    @keyframes slideUp {
+        0% {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Price bounce animation */
+    @keyframes bouncePrice {
+        0% {
+            transform: translateY(0);
+        }
+        30% {
+            transform: translateY(-5px);
+        }
+        50% {
+            transform: translateY(5px);
+        }
+        70% {
+            transform: translateY(-5px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    #price {
+        animation: bouncePrice 1.5s ease-out;
+    }
+
+    .card-body {
+        background-color: #f7f7f7;
+        border-radius: 15px;
+        padding: 25px;
+    }
+
+    .form-control, .form-group {
+        margin-bottom: 15px;
+    }
+</style>
+
+<div class="container-fluid mt-5">
+    <h2 class="text-center mb-4">Book Your Movie Ticket</h2>
+
+    <!-- Booking Form -->
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg p-4">
+                <div class="card-body">
+                    <form method="POST" action="{% url 'book_ticket' %}">
+                        {% csrf_token %}
+                        <h3 class="text-center text-primary">Per Ticket Price: 200rs</h3>
+                        
+                        <div class="form-group">
+                            <label for="movie_name">Movie Name</label>
+                            <input type="text" class="form-control" name="movie_name" id="movie_name" value="{{ movie_name }}" placeholder="Enter movie name" contenteditable='false'  required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="client_name">Your Name</label>
+                            <input type="text" class="form-control" name="client_name" id="client_name" placeholder="Enter your name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone_number">Phone Number</label>
+                            <input type="text" class="form-control" name="phone_number" id="phone_number" placeholder="Enter your phone number" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cinema_hall">Cinema Hall Name</label>
+                            <select class="form-control" name="cinema_hall" id="cinema_hall" required>
+                                <option value="">Select Cinema Hall</option>
+                                <option value="PVR Cinemas">PVR Cinemas</option>
+                                <option value="Inox Cinemas">Inox Cinemas</option>
+                                <option value="Satyam Cineplex">Satyam Cineplex</option>
+                                <option value="DT Cinemas">DT Cinemas</option>
+                                <option value="Select Citywalk">Select Citywalk</option>
+                                <option value="Rajdhani Cinema">Rajdhani Cinema</option>
+                                <option value="Eros Cinema">Eros Cinema</option>
+                                <option value="Shivaji Cinema">Shivaji Cinema</option>
+                                <option value="PVR Rivoli">PVR Rivoli</option>
+                                <option value="Kashmiri Gate Cinema">Kashmiri Gate Cinema</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date_time">Date</label>
+                            <input type="date" class="form-control" name="date" id="date_time" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time">Time</label>
+                            <input type="time" class="form-control" name="time" id="time" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seats">Seats</label>
+                            <input type="number" class="form-control" name="seats" id="seats" placeholder="How many seats you want" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="price">Ticket Price</label>
+                            <input type="text" class="form-control" name="price" id="price" value="0rs" disabled>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">Book Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("seats").addEventListener("input", function() {
+        let seatCount = parseInt(document.getElementById("seats").value);
+        if (isNaN(seatCount) || seatCount <= 0) {
+            seatCount = 0;
+        } else {
+            let totalPrice = seatCount * 200;
+            document.getElementById("price").value = totalPrice + "rs";
+        }
+    });
+</script>
+
+{% endblock tarun %}

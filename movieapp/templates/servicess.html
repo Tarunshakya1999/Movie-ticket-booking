@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Services - MovieTicket{% endblock %}
+
+{% block tarun %}
+    <!-- Services Section -->
+    <div class="container my-5">
+        <h2 class="text-center mb-4 text-primary">Our Services</h2>
+        <div class="row">
+
+            <!-- Service 1: Easy Ticket Booking -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-light rounded-3 hover-shadow" style="transition: all 0.3s ease;">
+                    <img src="https://media.istockphoto.com/id/921532564/vector/cinema-ticket-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=FshqGFTOn5a9LAimck3kBp2gLEGZhb2cy9oDJfMAODM=" class="card-img-top" alt="Easy Ticket Booking" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <i class="fas fa-ticket-alt fa-3x text-primary mb-3"></i>  <!-- Font Awesome Icon -->
+                        <h5 class="card-title text-success">Easy Ticket Booking</h5>
+                        <p class="card-text">Book your movie tickets with ease in just a few clicks. Seat selection, payment, and instant confirmation – all online!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2: Real-Time Availability -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-light rounded-3 hover-shadow" style="transition: all 0.3s ease;">
+                    <img src="https://media.istockphoto.com/id/487573977/vector/cinema-concept-illustration.jpg?s=612x612&w=0&k=20&c=FySw15PUDe74c_gOVfEibbqA5oKZ5IHgnizvwPdEAns=" class="card-img-top" alt="Real-Time Availability" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <i class="fas fa-clock fa-3x text-primary mb-3"></i>  <!-- Font Awesome Icon -->
+                        <h5 class="card-title text-success">Real-Time Availability</h5>
+                        <p class="card-text">Check movie showtimes and real-time seat availability before booking. Make informed decisions with up-to-date information!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3: Secure Payment -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-light rounded-3 hover-shadow" style="transition: all 0.3s ease;">
+                    <img src="https://www.shutterstock.com/image-vector/online-payment-protection-web-banner-260nw-1398943469.jpg" class="card-img-top" alt="Secure Payment" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <i class="fas fa-credit-card fa-3x text-primary mb-3"></i>  <!-- Font Awesome Icon -->
+                        <h5 class="card-title text-success">Secure Payment</h5>
+                        <p class="card-text">Enjoy peace of mind with multiple secure payment options. Pay for your tickets safely and conveniently.We provide you more secure...</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Additional Features Section -->
+        <div class="mt-5 text-center">
+            <h4 class="text-danger mb-4">Why Choose Us?</h4>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card shadow-lg border-info rounded-3">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Instant Booking</h5>
+                            <p class="card-text">Book tickets on the spot, no delays! Choose your movie, select seats, and confirm instantly.You can book anytime.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-lg border-info rounded-3">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Easy Navigation</h5>
+                            <p class="card-text">Our platform is designed to be user-friendly with easy navigation, so you can book your tickets hassle-free.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-lg border-info rounded-3">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Exclusive Discounts</h5>
+                            <p class="card-text">Enjoy exclusive discounts and promotions on your movie bookings. The more you book, the more you save!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Add some custom CSS -->
+    <style>
+        .hover-shadow:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        .card-body i {
+            transition: all 0.3s ease;
+        }
+        .card-body:hover i {
+            transform: rotate(360deg);
+        }
+    </style>
+    {% include "footer.html" %}
+{% endblock %}

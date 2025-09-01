@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Movie Ticket
+{% endblock title %}
+
+{% block tarun %}
+<div class="container mt-5 py-5" style="background-color: #f8f9fa; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <div class="text-center">
+        <h1 class="display-4 text-primary mb-4">🎟 Your Movie Ticket</h1>
+        <div class="card shadow-lg p-4" style="background-color: #ffffff; border-radius: 10px;">
+            <h3 class="text-dark mb-4">Ticket Information</h3>
+            <ul class="list-unstyled">
+                <li class="mb-2"><strong>Movie:</strong> <span class="text-info">{{ ticket.movie_name }}</span></li>
+                <li class="mb-2"><strong>Ticket ID:</strong> <span class="text-muted">{{ ticket.ticket_id }}</span></li>
+                <li class="mb-2"><strong>Name:</strong> <span class="text-muted">{{ ticket.client_name }}</span></li>
+                <li class="mb-2"><strong>Phone:</strong> <span class="text-muted">{{ ticket.phone_number }}</span></li>
+                <li class="mb-2"><strong>Cinema Hall:</strong> <span class="text-muted">{{ ticket.cinema_hall }}</span></li>
+                <li class="mb-2"><strong>Seats:</strong> <span class="text-muted">{{ ticket.seats }}</span></li>
+            </ul>
+            <p class="text-success mb-3"><strong>✅ Payment Successful</strong></p>
+
+            <div class="d-flex justify-content-center">
+                <a href="{% url 'download_ticket' ticket.ticket_id %}" class="btn btn-success btn-lg mx-2">Download Ticket PDF</a>
+                <a href="{% url 'book_ticket' %}" class="btn btn-outline-primary btn-lg mx-2">Book Another Ticket</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock tarun %}

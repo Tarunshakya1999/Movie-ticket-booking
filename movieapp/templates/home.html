@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+{% block tarun %}
+<marquee behavior="scroll" direction="left" scrollamount="10">
+  <b>MovieTicketHub.com : </b>Hindi Movies , English Movies , South Movies And Many More  Book Your Favourite Movie tuckets and grab best offers.
+  <marquee behavior="scroll" direction="left">Offer Offer Offer Book Movie Tickets on your Budget and save up to 500rs on the booking of any movie ticket minimum 5 seats...</marquee>
+</marquee>
+<!-- AOS CSS (for animation) -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Carousel Section -->
+<div id="carouselExampleAutoplay" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+  <div class="carousel-inner">
+    {% for i in img %}
+    <!-- Image Slide -->
+    <div class="carousel-item {% if forloop.first %}active{% endif %} ">
+      <img src="{{ i.logo.url }}" class="d-block w-100 img-fluid" alt="{{ i.name }}" style="height:600px; ">
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Carousel Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplay" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplay" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- Category Buttons Section -->
+<div class="container text-center my-5">
+  <h1 class="mb-4">- Book Your Favorite Movie Tickets Online - {{ selected_category }}</h1>
+  <div class="btn-group mb-4" style="width:100%;">
+    <a href="/?category=All" class="btn btn-secondary {% if selected_category == 'All' %}bg-primary text-white{% endif %}">All Movies</a>
+    <a href="/?category=Hindi" class="btn btn-secondary {% if selected_category == 'Hindi' %}bg-primary text-white{% endif %}">Hindi Movies</a>
+    <a href="/?category=English" class="btn btn-secondary {% if selected_category == 'English' %}bg-primary text-white{% endif %}">English Movies</a>
+    <a href="/?category=South" class="btn btn-secondary {% if selected_category == 'South' %}bg-primary text-white{% endif %}">South Movies</a>
+    <a href="{% url "profile" %}" class="btn btn-warning">Your Profile</a>
+  
+  </div>
+</div>
+
+<!-- Movies Section -->
+<div class="container">
+  <div class="row">
+    {% for movie in  movies %}
+    <div class="col-md-4 mb-4" data-aos="fade-up">
+      <div class="card shadow-sm border-light rounded" style="height: 100%; display: flex; flex-direction: column;">
+        <img src="{{ movie.img.url }}" class="card-img-top" alt="{{ movie.title }}" style="height:250px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ movie.title }}</h5>
+          <p class="card-text">{{ movie.description|truncatechars:120 }}</p>
+          <a href="{% url 'movie_detail' movie.id %}" class="btn btn-primary mt-auto" onclick="myalert()">Book Now</a>
+        </div>
+      </div>
+    </div>
+    {%empty%}
+     <h1 class="alert alert-danger">Opps!!! Movie Not Fount</h1>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Custom Script for Alert -->
+<script type="text/javascript">
+  function myalert(){
+    alert("You are leaving this page....");
+  }
+</script>
+
+
+<!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- AOS JS (Correct Placement) -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    AOS.init({
+      duration: 1500, 
+      easing: 'ease',  
+      once: false,    
+    });
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+{% include "footer.html" %}
+{% endblock tarun %}
+

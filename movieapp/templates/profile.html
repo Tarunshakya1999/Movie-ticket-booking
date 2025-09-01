@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block tarun %}
+
+<!-- Container for profile creation -->
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header text-center bg-success text-white">
+                    <h4>Create Profile</h4>
+                </div>
+                <div class="card-body p-4">
+                    <!-- Form to create profile -->
+                    <form action="" method="post" novalidate>
+                        {% csrf_token %}
+                        
+                        {% for i in form %}
+                            <div class="mb-3">
+                                <label class="form-label">{{i.label_tag}}</label>
+                                {{i}} 
+                                <div class="text-danger">
+                                    <small>{{i.errors|striptags}}</small>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary w-100 py-2">Save</button>
+                        
+                        {% if form.non_field_errors %}
+                            {% for errors in form.non_field_errors %}
+                                <div class="alert alert-danger my-3">{{errors}}</div>
+                            {% endfor %}
+                        {% endif %}
+                        
+                        {% if messages %}
+                            {% for i in messages %}
+                                <div class="alert alert-{{msg.tags}}" role="alert">{{i}}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </form>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Profile link section -->
+<div class="text-center my-4">
+   <a href="{% url 'address' %}"><button class=" btn btn-primary btn-lg" style="width: 250px;">My Profile</button></a>
+</div>
+
+{% endblock tarun %}

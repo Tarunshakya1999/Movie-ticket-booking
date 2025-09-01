@@ -1,0 +1,11 @@
+<!-- movie_not_found.html -->
+{% extends 'base.html' %}
+
+{% block title %}Movie Not Found{% endblock %}
+
+{% block tarun %}
+  <div class="container mt-5">
+    <h3>Sorry, no movie found for "{{ query }}"</h3>
+    <a href="{% url 'home' %}" class="btn btn-primary">Go Back to Home</a>
+  </div>
+{% endblock %}
