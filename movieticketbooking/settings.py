@@ -148,3 +148,15 @@ EMAIL_HOST_PASSWORD = 'your-email-password'  # Your Gmail app password (if 2FA e
 DEFAULT_FROM_EMAIL = 'shakyatarun32@gmail.com'  # Same Gmail address
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+
+import os
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Disable collectstatic prompt
+os.environ["DJANGO_COLLECTSTATIC"] = "1"
+
