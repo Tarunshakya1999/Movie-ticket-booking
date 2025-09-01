@@ -26,13 +26,7 @@ SECRET_KEY = 'django-insecure-d*r19cfbu585zqtracrzb3s5p-i50$%rn9cry$3e1n5z#or43v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
-ALLOWED_HOSTS = [
-    'movie-ticket-booking-4-b74x.onrender.com',
-    
-]
-
-
+ALLOWED_HOSTS = ['movie-ticket-booking-4-gtt0.onrender.com']
 
 
 # Application definition
